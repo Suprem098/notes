@@ -1,0 +1,88 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Note - {{ note.title }}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <!-- PDF.js CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.9.179/pdf_viewer.min.css" />
+    <style>
+        #pdf-viewer {
+            width: 100%;
+            height: 600px;
+            border: 1px solid #ccc;
+            overflow: auto;
+        }
+    </style>
+</head>
+<body>
+    {% include 'mainapp/nav.html' with current_page='semester' %}
+    <main style="max-width: 900px; margin: 20px auto; padding: 20px;">
+        <h2>{{ note.title }}</h2>
+        {% if note.file and note.file.url and file_exists %}
+            <div id="pdf-viewer-container" class="pdfViewerContainer" style="height: 600px; border: 1px solid #ccc; overflow: auto; position: relative;">
+                <div id="pdf-viewer" class="pdfViewer" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0;"></div>
+            </div>
+            <p><a href="{{ note.file.url }}" download>Download File</a></p>
+        {% else %}
+            <p>No file available for this note.</p>
+        {% endif %}
+    </main>
+    {% include 'mainapp/footer.html' %}
+
+    <!-- PDF.js library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.9.179/pdf.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.9.179/pdf_viewer.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const url = "{{ note.file.url }}";
+            if (!url) return;
+
+            const CMAP_URL = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.9.179/cmaps/';
+            const CMAP_PACKED = true;
+
+            const container = document.getElementById('pdf-viewer');
+
+            const eventBus = new pdfjsViewer.EventBus();
+
+            const pdfLinkService = new pdfjsViewer.PDFLinkService({
+                eventBus,
+            });
+
+            const pdfFindController = new pdfjsViewer.PDFFindController({
+                eventBus,
+                linkService: pdfLinkService,
+            });
+
+            const pdfViewer = new pdfjsViewer.PDFViewer({
+                container,
+                eventBus,
+                linkService: pdfLinkService,
+                findController: pdfFindController,
+            });
+
+            pdfLinkService.setViewer(pdfViewer);
+
+            pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.9.179/pdf.worker.min.js';
+
+            const loadingTask = pdfjsLib.getDocument({
+                url: url,
+                cMapUrl: CMAP_URL,
+                cMapPacked: CMAP_PACKED,
+            });
+
+            loadingTask.promise.then(function(pdfDocument) {
+                pdfViewer.setDocument(pdfDocument);
+                pdfLinkService.setDocument(pdfDocument, null);
+            }).catch(function(error) {
+            console.error('Error loading PDF:', error);
+            container.innerHTML = '<p>Failed to load PDF: ' + error.message + '</p>';
+        });
+
+        console.log('PDF.js viewer initialized for URL:', url);
+        });
+    </script>
+</body>
+</html>

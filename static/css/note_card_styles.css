@@ -1,0 +1,92 @@
+.card.note-card {
+  position: relative;
+  margin-bottom: 20px;
+  padding: 20px 25px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  cursor: pointer;
+}
+
+.note-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px 30px;
+  padding: 0;
+  margin: 0;
+}
+
+.card.note-card:hover {
+  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+  transform: translateY(-4px);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.note-title {
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: #1e40af;
+  user-select: none;
+}
+
+.card-icon {
+  font-size: 1.8rem;
+  user-select: none;
+}
+
+.note-description {
+  font-size: 1rem;
+  color: #4b5563;
+  line-height: 1.4;
+  user-select: none;
+}
+
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-info {
+  display: flex;
+  gap: 20px;
+  font-size: 0.9rem;
+  color: #6b7280;
+  user-select: none;
+}
+
+.card-info span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.card-actions a.btn {
+  font-size: 0.9rem;
+  padding: 8px 14px;
+  border-radius: 6px;
+  text-decoration: none;
+  user-select: none;
+}
+
+.card-actions a.btn + a.btn {
+  margin-left: 12px;
+}
+
+.card-star {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  font-size: 1.4rem;
+  color: #2563eb;
+  user-select: none;
+}

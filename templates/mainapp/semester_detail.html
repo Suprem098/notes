@@ -1,0 +1,98 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{{ semester_name }} - Subjects</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+</head>
+<body>
+    
+    {% include 'mainapp/nav.html' %}
+
+    <main>
+        {# Removed banner section as requested #}
+         <section class="banner" style="text-align: center;">
+            <h2>{{ semester_name }}</h2>
+            <p class="breadcrumb" style="display: inline-block;">Home // {{ semester_name }} // <a href="#">Subjects</a></p>
+        </section> 
+
+        <section class="content" style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
+            {% if subjects %}
+                {% for subject in subjects %}
+                    <div class="subject-card" style="background-color: #f9fafb; border-radius: 12px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); padding: 20px; width: 320px; display: flex; flex-direction: column; gap: 15px; border: 1px solid #e5e7eb;">
+                        <h3 style="margin: 0; font-weight: 600; color: #1e293b;">{{ subject.name }}</h3>
+                        {% if subject.description %}
+                        <p style="margin: 0; font-size: 0.95rem; color: #475569;">{{ subject.description }}</p>
+                        {% endif %}
+                        <div style="display: flex; align-items: center; gap: 20px; font-weight: 600; font-size: 0.95rem; color: #475569;">
+                            {% if subject.code %}
+                            <span style="display: flex; align-items: center; gap: 6px;">
+                                <img src="{% static 'images/book_icon.svg' %}" alt="code icon" style="width: 18px; height: 18px;" />
+                                {{ subject.code }}
+                            </span>
+                            {% endif %}
+                            {% if subject.chapters %}
+                            <span style="display: flex; align-items: center; gap: 6px;">
+                                <img src="{% static 'images/chapters_icon.svg' %}" alt="chapters icon" style="width: 18px; height: 18px;" />
+                                Chapters : {{ subject.chapters }}
+                            </span>
+                            {% endif %}
+                        </div>
+                        <div style="margin-top: auto; display: flex; justify-content: space-between; align-items: center;">
+                            <div style="color: #2563eb; font-size: 20px; cursor: pointer;">&#9733;</div>
+                            <a href="{% url 'chapter_list_by_subject' subject.id %}" style="background-color: #10b981; color: white; padding: 10px 16px; border-radius: 6px; text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 8px;">
+                                Explore Chapters <span style="font-size: 20px;">&#10145;</span>
+                            </a>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <p>No subjects found for this semester.</p>
+            {% endif %}
+        </section>
+    </main>
+
+    {% include 'mainapp/footer.html' %}
+
+</body>
+</html>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const dropdowns = document.querySelectorAll('.dropdown');
+
+            dropdowns.forEach(dropdown => {
+                const btn = dropdown.querySelector('.dropbtn');
+                const menu = dropdown.querySelector('.dropdown-content');
+
+                btn.addEventListener('click', function(e) {
+                    // Only prevent default if the dropdown has a menu
+                    if (menu) {
+                        e.preventDefault();
+                        // Toggle dropdown visibility
+                        if (menu.style.display === 'block') {
+                            menu.style.display = 'none';
+                        } else {
+                            // Hide other dropdowns
+                            document.querySelectorAll('.dropdown-content').forEach(dc => {
+                                dc.style.display = 'none';
+                            });
+                            menu.style.display = 'block';
+                        }
+                    }
+                });
+            });
+
+            // Close dropdowns if clicked outside
+            document.addEventListener('click', function(e) {
+                if (!e.target.matches('.dropbtn')) {
+                    document.querySelectorAll('.dropdown-content').forEach(dc => {
+                        dc.style.display = 'none';
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

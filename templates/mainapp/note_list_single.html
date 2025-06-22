@@ -1,0 +1,166 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+        <head>
+            <meta charset="UTF-8" />
+            <meta name="viewport" content="width=device-width, initial-scale=1" />
+            <title>Notes for Chapter - {{ chapter.title }}</title>
+            <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+            <link rel="stylesheet" href="{% static 'css/note_card_styles.css' %}" />
+            <style>
+                /* Modal styles */
+                .modal {
+                    display: none; 
+                    position: fixed; 
+                    z-index: 1000; 
+                    padding-top: 60px; 
+                    left: 0;
+                    top: 0;
+                    width: 100%; 
+                    height: 100%; 
+                    overflow: auto; 
+                    background-color: rgba(0,0,0,0.7); 
+                }
+                .modal-content {
+                    margin: auto;
+                    background-color: #fefefe;
+                    padding: 10px;
+                    border-radius: 8px;
+                    width: 80%;
+                    height: 80%;
+                    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+                    position: relative;
+                    display: flex;
+                    flex-direction: column;
+                }
+                .modal-header {
+                    display: flex;
+                    justify-content: flex-end;
+                }
+                .close {
+                    color: #aaa;
+                    font-size: 28px;
+                    font-weight: bold;
+                    cursor: pointer;
+                    padding: 0 10px;
+                }
+                .close:hover,
+                .close:focus {
+                    color: black;
+                    text-decoration: none;
+                }
+                .modal-body {
+                    flex: 1;
+                    overflow: auto;
+                }
+                iframe {
+                    width: 100%;
+                    height: 100%;
+                    border: none;
+                }
+                .btn {
+                    text-decoration: none;
+                    padding: 6px 12px;
+                    color: white;
+                    border-radius: 4px;
+                    cursor: pointer;
+                    font-size: 0.9em;
+                }
+                .btn-primary {
+                    background-color: #007bff;
+                }
+                .btn-secondary {
+                    background-color: #6c757d;
+                    margin-left: 8px;
+                }
+            </style>
+        </head>
+<body>
+    {% include 'mainapp/nav.html' with current_page='semester' %}
+    <main>
+        <h2>Notes for Chapter: {{ chapter.title }}</h2>
+        <ul class="note-list">
+            {% for note in notes %}
+                <li class="card note-card">
+                    <div class="card-content">
+                        <div class="card-header">
+                            <h3 class="note-title">{{ note.title }}</h3>
+                            <div class="card-icon" title="Note">
+                                📚
+                            </div>
+                        </div>
+                        <p class="note-description">{{ note.description|default:"No description available."|truncatechars:100 }}</p>
+                        <div class="card-footer">
+                            <div class="card-info">
+                                <span class="students-count" title="Students">
+                                    👥 {{ note.student_count|default:"0" }}+ Students
+                                </span>
+                                <span class="questions-count" title="Questions">
+                                    💬 {{ note.question_count|default:"0" }}+ Questions
+                                </span>
+                            </div>
+                            <div class="card-actions">
+                                {% if note.file and note.file.url %}
+                                    <a href="{{ note.file.url }}" download class="btn btn-primary" aria-label="Download {{ note.title }} PDF">
+                                        &#128229; Download PDF
+                                    </a>
+                                    <a href="{{ note.file.url }}" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" aria-label="View {{ note.title }} PDF">
+                                        &#128065; View PDF
+                                    </a>
+                                {% else %}
+                                    <span>No file available</span>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-star" title="Favorite">
+                        ⭐
+                    </div>
+                </li>
+            {% empty %}
+                <li>No notes available for this chapter.</li>
+            {% endfor %}
+        </ul>
+    </main>
+
+    <!-- Modal for PDF viewing -->
+    <div id="pdfModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close" id="modalCloseBtn">&times;</span>
+            </div>
+            <div class="modal-body">
+                <iframe id="pdfFrame" src="" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+
+    {% include 'mainapp/footer.html' %}
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const modal = document.getElementById('pdfModal');
+            const pdfFrame = document.getElementById('pdfFrame');
+            const closeBtn = document.getElementById('modalCloseBtn');
+
+            document.querySelectorAll('.view-pdf-btn').forEach(button => {
+                button.addEventListener('click', () => {
+                    const pdfUrl = button.getAttribute('data-pdf-url');
+                    pdfFrame.src = pdfUrl;
+                    modal.style.display = 'block';
+                });
+            });
+
+            closeBtn.addEventListener('click', () => {
+                modal.style.display = 'none';
+                pdfFrame.src = '';
+            });
+
+            window.addEventListener('click', (event) => {
+                if (event.target === modal) {
+                    modal.style.display = 'none';
+                    pdfFrame.src = '';
+                }
+            });
+        });
+    </script>

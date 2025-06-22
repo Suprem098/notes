@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Notes - {{ semester_name }}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+</head>
+<body>
+    {% include 'mainapp/nav.html' with current_page='semester' %}
+    <main>
+        <h2>Notes for Semester: {{ semester_name }}</h2>
+        {% for chapter_with_notes in chapters_with_notes %}
+            <section style="margin-bottom: 30px;">
+                <h3>Chapter {{ forloop.counter }}: {{ chapter_with_notes.chapter.title }}</h3>
+                <ul class="note-list">
+                    {% for note in chapter_with_notes.notes %}
+                        <li style="margin-bottom: 15px; border: 1px solid #ddd; padding: 10px; border-radius: 5px; display: flex; justify-content: space-between; align-items: center;">
+                            <span>{{ note.title }}</span>
+                            {% if note.file and note.file.url %}
+                                <a href="{{ note.file.url }}" download class="btn btn-primary" style="text-decoration: none; padding: 6px 12px; background-color: #007bff; color: white; border-radius: 4px;">Download PDF</a>
+                            {% else %}
+                                <span>No file available</span>
+                            {% endif %}
+                        </li>
+                    {% empty %}
+                        <li>No notes available for this chapter.</li>
+                    {% endfor %}
+                </ul>
+            </section>
+        {% empty %}
+            <p>No chapters or notes available.</p>
+        {% endfor %}
+    </main>
+    {% include 'mainapp/footer.html' %}
+</body>
+</html>

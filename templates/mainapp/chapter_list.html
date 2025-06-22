@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Chapters - {{ semester_name }}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/chapter_list_styles.css' %}" />
+</head>
+<body>
+    {% include 'mainapp/nav.html' %}
+    <center><h2>Chapters for {{ semester_name }}:</h2></center>
+    <main class="main-container">
+        
+        <section class="chapter-grid">
+            {% for chapter in chapters %}
+                <div class="chapter-card">
+                    <h3 class="chapter-title">{{ chapter.title }}:</h3>
+                    <p class="chapter-description">{{ chapter.description|default:"No description available." }}</p>
+                    <div class="chapter-info">
+                        <span>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path d="M12 12c2.21 0 4-1.79 4-4S14.21 4 12 4 8 5.79 8 8s1.79 4 4 4zM6 20c0-2.67 5.33-4 6-4s6 1.33 6 4v1H6v-1z"/>
+                            </svg>
+                            {{ chapter.student_count|default:"1k+" }} Students
+                        </span>
+                        <span>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z"/>
+                            </svg>
+                            Questions: {{ chapter.question_count|default:"N/A" }}
+                        </span>
+                    </div>
+                    <a href="{% url 'note_list' chapter.id %}" class="read-note-btn">
+                        Read Note &#10145;
+                    </a>
+                </div>
+            {% empty %}
+                <p>No chapters available.</p>
+            {% endfor %}
+        </section>
+    </main>
+    {% include 'mainapp/footer.html' %}
+</body>
+</html>

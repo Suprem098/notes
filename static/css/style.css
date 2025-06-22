@@ -1,0 +1,613 @@
+/* Existing styles */
+
+/* Remove ellipsis dots from subject descriptions */
+.subject-card p {
+    white-space: normal !important;
+    overflow: visible !important;
+    text-overflow: clip !important;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  font-family: 'Open Sans', sans-serif;
+}
+
+body {
+  background: #f5f7fa;
+  color: #333;
+  line-height: 1.6;
+  font-size: 16px;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Header and Navigation */
+header.navbar {
+  background-color: #ffffff;
+  padding: 0.5rem 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  /* max-height: 80px; */
+  /* overflow: visible; */
+}
+
+.nav-logo a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  width: 200px;
+}
+
+.logo-img {
+  height: 100px;
+  width: 180px;
+  filter: none;
+  transition: filter 0.3s ease;
+}
+
+.logo-img:hover {
+  filter: brightness(0.85);
+}
+
+nav ul.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+nav ul.nav-links li {
+  position: relative;
+}
+
+nav ul.nav-links li a.nav-link {
+  color: #555;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: none;
+}
+
+nav ul.nav-links li a.nav-link:hover,
+nav ul.nav-links li a.nav-link:focus,
+nav ul.nav-links li a.nav-link.active {
+  background-color: #e0e7ff;
+  color: #1e40af;
+  box-shadow: 0 0 8px rgba(59, 130, 246, 0.5);
+  outline: none;
+  cursor: pointer;
+}
+
+/* Dropdown */
+nav ul.nav-links li.dropdown:hover > ul.dropdown-content,
+nav ul.nav-links li.dropdown:focus-within > ul.dropdown-content {
+  display: block;
+}
+
+ul.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 110%;
+  left: 0;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  min-width: 220px;
+  z-index: 3000;
+  padding: 0.5rem 0;
+  list-style-type: none;
+}
+
+ul.dropdown-content li a {
+  display: block;
+  padding: 0.75rem 1.5rem;
+  color: #333;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+  border-radius: 0;
+  text-decoration: none !important;
+  border-bottom: none !important;
+  list-style-type: none !important;
+  background-image: none !important;
+}
+
+ul.dropdown-content li a:hover,
+ul.dropdown-content li a:focus {
+  background-color: #e0e7ff;
+  color: #1e40af;
+  outline: none;
+  cursor: pointer;
+}
+
+/* Banner container for two gifs side by side */
+.banner-container {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin: 2rem 0;
+  padding: 1rem 2rem;
+  background: #f0f4ff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+.banner-container:hover {
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+}
+
+.banner-image {
+  max-width: 48%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  user-select: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.banner-image:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+}
+
+/* Programs section */
+.programs-section {
+  background-color: #f0f4ff;
+  padding: 1.5rem 2rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  transition: box-shadow 0.3s ease;
+}
+
+.programs-section:hover {
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+}
+
+.programs-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.college-logo {
+  max-height: 80px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+  user-select: none;
+}
+
+.college-logo:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+}
+
+.programs-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  color: #1e40af;
+  user-select: none;
+}
+
+.programs-label {
+  font-weight: 700;
+  font-size: 1.2rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.program-btn {
+  background-color: #1e40af;
+  border: none;
+  padding: 0.4rem 1.2rem;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #f0f4ff;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(30, 64, 175, 0.4);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  user-select: none;
+}
+
+.program-btn:hover {
+  background-color: #3b82f6;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.6);
+}
+
+/* Main content */
+main {
+  background-color: #ffffff;
+  color: #333;
+  padding: 2rem 1.5rem 3rem 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto 3rem auto;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+  transition: box-shadow 0.3s ease;
+  animation: fadeIn 1s ease forwards;
+}
+
+main:hover {
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Smooth scale-up on hover for program buttons */
+.program-btn {
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.program-btn:hover {
+  transform: scale(1.05);
+}
+
+/* Subtle pulse animation for banner images */
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.03); }
+}
+
+.banner-image {
+  animation: pulse 6s ease-in-out infinite;
+  transition: box-shadow 0.3s ease;
+}
+
+.banner-image:hover {
+  animation-play-state: paused;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+  transform: scale(1.1);
+}
+
+/* Navigation links fade-in on page load */
+nav ul.nav-links li a.nav-link {
+  opacity: 0;
+  animation: fadeIn 0.8s ease forwards;
+}
+
+nav ul.nav-links li:nth-child(1) a.nav-link { animation-delay: 0.1s; }
+nav ul.nav-links li:nth-child(2) a.nav-link { animation-delay: 0.2s; }
+nav ul.nav-links li:nth-child(3) a.nav-link { animation-delay: 0.3s; }
+nav ul.nav-links li:nth-child(4) a.nav-link { animation-delay: 0.4s; }
+nav ul.nav-links li:nth-child(5) a.nav-link { animation-delay: 0.5s; }
+nav ul.nav-links li:nth-child(6) a.nav-link { animation-delay: 0.6s; }
+nav ul.nav-links li:nth-child(7) a.nav-link { animation-delay: 0.7s; }
+
+/* Smooth hover effect for cards */
+.card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover,
+.card:focus {
+  transform: translateY(-8px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+}
+
+/* About section */
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 1.5rem;
+  background-color: #f0f4ff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.text, .image {
+  flex: 1 1 400px;
+  padding: 1rem;
+}
+
+.text h3 {
+  font-size: 2rem;
+  color: #1e40af;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  font-style: italic;
+  letter-spacing: 1.2px;
+}
+
+.text p {
+  font-size: 1rem;
+  color: #4b5563;
+  text-align: justify;
+  line-height: 1.6;
+  font-style: italic;
+}
+
+/* Image */
+.image img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  object-fit: contain;
+  user-select: none;
+  transition: transform 0.3s ease;
+}
+
+.image img:hover {
+  transform: scale(1.03);
+}
+
+/* Semester notes section */
+.note {
+  background-color: #f0f4ff;
+  padding: 2rem 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  margin-bottom: 3rem;
+  user-select: none;
+  transition: box-shadow 0.3s ease;
+}
+
+.note:hover {
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1e40af;
+  letter-spacing: 1.5px;
+}
+
+.title span {
+  color: #2563eb;
+}
+
+.subtitle {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #6b7280;
+  margin-bottom: 2rem;
+  font-style: italic;
+}
+
+/* Grid for cards */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  text-decoration: none !important;
+  color: #333;
+  user-select: none;
+}
+
+.card:hover,
+.card:focus {
+  transform: translateY(-6px);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  outline: none;
+}
+
+.icon {
+  font-size: 2.5rem;
+  margin-right: 1rem;
+  color: #2563eb;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+}
+
+.semester {
+  font-weight: 600;
+  font-size: 1.3rem;
+  color: #2563eb;
+}
+
+.subjects {
+  font-size: 1rem;
+  color: #6b7280;
+}
+
+/* Footer */
+footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem 3rem;
+  background-color: #f0f4ff;
+  color: #2563eb;
+  font-size: 1rem;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  user-select: none;
+  border-top: 2px solid #2563eb;
+  box-shadow: 0 0 20px #2563eb44;
+}
+
+/* Semester cards grid */
+.semester-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+/* Semester card */
+.semester-card {
+    text-decoration: none;
+    color: inherit;
+    border-radius: 10px;
+    padding: 20px;
+    width: 250px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Icon container */
+.semester-card .icon {
+    background: white;
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+}
+
+/* Info container */
+.semester-card .info {
+    display: flex;
+    flex-direction: column;
+}
+
+.semester-card .semester {
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: #333;
+}
+
+.semester-card .subjects {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+/* Background colors for cards */
+.bg1 {
+    background-color: #f5e6d7; /* pastel peach */
+}
+
+.bg2 {
+    background-color: #f7d6d6; /* pastel pink */
+}
+
+.bg3 {
+    background-color: #f9f1d1; /* pastel yellow */
+}
+
+.bg4 {
+    background-color: #d7e8ff; /* pastel blue */
+}
+
+.bg5 {
+    background-color: #d9d9ff; /* pastel purple */
+}
+
+.bg6 {
+    background-color: #e6f0f9; /* pastel light blue */
+}
+
+.bg7 {
+    background-color: #d1f0e0; /* pastel mint */
+}
+
+.bg8 {
+    background-color: #d9f0d1; /* pastel green */
+}
+
+.footer {
+  background-color: #f0f4ff;
+  text-align: center;
+  color: #2563eb;
+  font-size: 0.9rem;
+  padding: 1rem 0;
+  width: 100%;
+  border-top: 2px solid #2563eb;
+  user-select: none;
+  box-shadow: 0 0 20px #2563eb44;
+}
+
+.column {
+  flex: 1 1 280px;
+  margin-right: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    padding: 1rem;
+  }
+
+  .text, .image {
+    padding: 1rem;
+  }
+
+  nav ul.nav-links {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  nav ul.nav-links li a.nav-link {
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+  }
+
+  .banner-container {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .banner-image {
+    max-width: 100%;
+  }
+
+  .programs-section {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .container {
+    flex-direction: column;
+    padding: 1rem;
+  }
+
+  .note {
+    padding: 2rem 1rem;
+  }
+
+  footer {
+    flex-direction: column;
+    padding: 2rem 1rem;
+  }
+
+  .column {
+    margin-right: 0;
+    margin-bottom: 2rem;
+  }
+}
+

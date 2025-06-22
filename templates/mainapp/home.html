@@ -1,0 +1,198 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{{ faculty.name|default:"Faculty" }} Website - Home</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+</head>
+<body>
+    {% include 'mainapp/nav.html' %}
+
+    <section class="banner-container" style="background-color: #dbe9ff; border-radius: 12px; padding: 2rem 4rem; display: flex; justify-content: center; align-items: center; gap: 1rem; margin-bottom: 2rem;">
+        <div class="programs-left" style="display: flex; align-items: center; gap: 1rem; background-color: #cce6ff; border-radius: 12px; padding: 1rem 2rem;">
+            <img src="{% static 'images/wl.png' %}" alt="Bernhardt College" style="height: 100px;" />
+            <div class="programs-text" style="display: flex; flex-direction: column; gap: 0.5rem;">
+                <div style="font-weight: 700; font-size: 1.4rem; color: #1e40af;">PROGRAMS</div>
+                <div style="display: flex; gap: 0.5rem;">
+                    <button class="program-btn" style="background-color: #facc15; border-radius: 12px; padding: 0.5rem 1.2rem; font-weight: 600; font-size: 1.2rem; color: #000;">BCA</button>
+                    <button class="program-btn" style="background-color: #facc15; border-radius: 12px; padding: 0.5rem 1.2rem; font-weight: 600; font-size: 1.2rem; color: #000;">BSc. CSIT</button>
+                    <button class="program-btn" style="background-color: #facc15; border-radius: 12px; padding: 0.5rem 1.2rem; font-weight: 600; font-size: 1.2rem; color: #000;">BSM</button>
+                    <button class="program-btn" style="background-color: #facc15; border-radius: 12px; padding: 0.5rem 1.2rem; font-weight: 600; font-size: 1.2rem; color: #000;">BBS</button>
+                </div>
+            </div>
+        </div>
+        <div style="background-color: #dbe9ff; border-radius: 12px; padding: 1rem 2rem;">
+            <img src="{% static 'images/banner1.gif' %}" alt="Deer Hack 2025" style="height: 120px; border-radius: 12px;" />
+        </div>
+    </section>
+
+    <main>
+        <section class="banner" style="margin-bottom: 2rem;">
+            <h2 style="font-weight: 700; font-size: 1.8rem; color: #1e40af;">BCA Program</h2>
+            <p style="font-size: 1rem; color: #4b5563;">Best Learning Platform To Prepare For BCA Semester Exams</p>
+        </section>
+
+        <div class="container" style="display: flex; gap: 2rem; background-color: #dbe9ff; border-radius: 12px; padding: 1rem;">
+            <div class="text" style="flex: 1; font-style: italic; color: #4b5563;">
+                <h3 style="font-weight: 700; font-size: 1.5rem; color: #2563eb; font-style: normal; margin-bottom: 1rem;">ABOUT BCA</h3>
+                <p>
+                    This website is designed to provide resources and information for BCA students. The Bachelor of Computer Applications (BCA) is a 4-year (8-semester) undergraduate program offered by several universities in Nepal, including Tribhuvan University (TU), Purbanchal University, Pokhara University, Mid-Western University, and others. This program is designed to equip students with a strong foundation in computer science, application development, and information technology. The BCA program focuses on both theoretical and practical aspects of computing. It prepares students for careers in software development, web and mobile application development, database administration, networking, cybersecurity, and IT support services. The course structure also includes soft skills, communication, and project work to ensure holistic development.
+                </p>
+            </div>
+            <div class="image" style="flex: 1;">
+                <img src="{% static 'images/programming.jpg' %}" alt="programming" style="width: 100%; border-radius: 12px; object-fit: cover;" />
+            </div>
+        </div>
+
+        <section class="semester-notes-section" style="margin-top: 3rem; text-align: center;">
+            <h2 style="font-weight: 700; font-size: 2rem; margin-bottom: 0.5rem;">Semester Wise <span style="color: #00b386;">BCA Notes</span></h2>
+            <p style="font-size: 1rem; color: #666;">Complete semester wise notes for BCA.</p>
+
+            {% comment %} <div class="semester-cards" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; margin-top: 1.5rem;">
+                <div class="semester-card" style="background-color: #fff4e6; border-radius: 12px; padding: 20px; width: 220px; display: flex; align-items: center; gap: 15px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                    <div class="icon" style="background-color: #ff9900; border-radius: 8px; padding: 10px; display: flex; align-items: center; justify-content: center; width: 50px; height: 50px;">
+                        <img src="{% static 'images/icon1.svg' %}" alt="First Semester Icon" style="width: 30px; height: 30px;" />
+                    </div>
+                    <div class="info" style="text-align: left;">
+                        <div class="semester" style="font-weight: 600; font-size: 1.1rem; color: #333;">First Semester</div>
+                        <div class="subjects" style="color: #666; font-size: 0.9rem;">5 Subjects</div>
+                    </div>
+                </div>
+                <div class="semester-card" style="background-color: #f9d6d6; border-radius: 12px; padding: 20px; width: 220px; display: flex; align-items: center; gap: 15px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                    <div class="icon" style="background-color: #e60000; border-radius: 8px; padding: 10px; display: flex; align-items: center; justify-content: center; width: 50px; height: 50px;">
+                        <img src="{% static 'images/icon2.svg' %}" alt="Second Semester Icon" style="width: 30px; height: 30px;" />
+                    </div>
+                    <div class="info" style="text-align: left;">
+                        <div class="semester" style="font-weight: 600; font-size: 1.1rem; color: #333;">Second Semester</div>
+                        <div class="subjects" style="color: #666; font-size: 0.9rem;">5 Subjects</div>
+                    </div>
+                </div>
+                <div class="semester-card" style="background-color: #fff7d6; border-radius: 12px; padding: 20px; width: 220px; display: flex; align-items: center; gap: 15px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                    <div class="icon" style="background-color: #ffcc00; border-radius: 8px; padding: 10px; display: flex; align-items: center; justify-content: center; width: 50px; height: 50px;">
+                        <img src="{% static 'images/icon3.svg' %}" alt="Third Semester Icon" style="width: 30px; height: 30px;" />
+                    </div>
+                    <div class="info" style="text-align: left;">
+                        <div class="semester" style="font-weight: 600; font-size: 1.1rem; color: #333;">Third Semester</div>
+                        <div class="subjects" style="color: #666; font-size: 0.9rem;">5 Subjects</div>
+                    </div>
+                </div>
+                <div class="semester-card" style="background-color: #cce6ff; border-radius: 12px; padding: 20px; width: 220px; display: flex; align-items: center; gap: 15px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                    <div class="icon" style="background-color: #3399ff; border-radius: 8px; padding: 10px; display: flex; align-items: center; justify-content: center; width: 50px; height: 50px;">
+                        <img src="{% static 'images/icon4.svg' %}" alt="Fourth Semester Icon" style="width: 30px; height: 30px;" />
+                    </div>
+                    <div class="info" style="text-align: left;">
+                        <div class="semester" style="font-weight: 600; font-size: 1.1rem; color: #333;">Fourth Semester</div>
+                        <div class="subjects" style="color: #666; font-size: 0.9rem;">5 Subjects</div>
+                    </div>
+                </div>
+                <div class="semester-card" style="background-color: #d6d6ff; border-radius: 12px; padding: 20px; width: 220px; display: flex; align-items: center; gap: 15px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                    <div class="icon" style="background-color: #6666ff; border-radius: 8px; padding: 10px; display: flex; align-items: center; justify-content: center; width: 50px; height: 50px;">
+                        <img src="{% static 'images/icon5.svg' %}" alt="Fifth Semester Icon" style="width: 30px; height: 30px;" />
+                    </div>
+                    <div class="info" style="text-align: left;">
+                        <div class="semester" style="font-weight: 600; font-size: 1.1rem; color: #333;">Fifth Semester</div>
+                        <div class="subjects" style="color: #666; font-size: 0.9rem;">6 Subjects</div>
+                    </div>
+                </div>
+                <div class="semester-card" style="background-color: #cce0ff; border-radius: 12px; padding: 20px; width: 220px; display: flex; align-items: center; gap: 15px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                    <div class="icon" style="background-color: #3399ff; border-radius: 8px; padding: 10px; display: flex; align-items: center; justify-content: center; width: 50px; height: 50px;">
+                        <img src="{% static 'images/icon6.svg' %}" alt="Sixth Semester Icon" style="width: 30px; height: 30px;" />
+                    </div>
+                    <div class="info" style="text-align: left;">
+                        <div class="semester" style="font-weight: 600; font-size: 1.1rem; color: #333;">Sixth Semester</div>
+                        <div class="subjects" style="color: #666; font-size: 0.9rem;">6 Subjects</div>
+                    </div>
+                </div>
+                <div class="semester-card" style="background-color: #d6f0eb; border-radius: 12px; padding: 20px; width: 220px; display: flex; align-items: center; gap: 15px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                    <div class="icon" style="background-color: #00b386; border-radius: 8px; padding: 10px; display: flex; align-items: center; justify-content: center; width: 50px; height: 50px;">
+                        <img src="{% static 'images/icon7.svg' %}" alt="Seventh Semester Icon" style="width: 30px; height: 30px;" />
+                    </div>
+                    <div class="info" style="text-align: left;">
+                        <div class="semester" style="font-weight: 600; font-size: 1.1rem; color: #333;">Seventh Semester</div>
+                        <div class="subjects" style="color: #666; font-size: 0.9rem;">5 Subjects</div>
+                    </div>
+                </div>
+                <div class="semester-card" style="background-color: #d6f0d6; border-radius: 12px; padding: 20px; width: 220px; display: flex; align-items: center; gap: 15px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                    <div class="icon" style="background-color: #00b300; border-radius: 8px; padding: 10px; display: flex; align-items: center; justify-content: center; width: 50px; height: 50px;">
+                        <img src="{% static 'images/icon8.svg' %}" alt="Eighth Semester Icon" style="width: 30px; height: 30px;" />
+                    </div>
+                    <div class="info" style="text-align: left;">
+                        <div class="semester" style="font-weight: 600; font-size: 1.1rem; color: #333;">Eight Semester</div>
+                        <div class="subjects" style="color: #666; font-size: 0.9rem;">4 Subjects</div>
+                    </div> {% endcomment %}
+                </div>
+            </div>
+        </div>
+
+        <div class="note">
+            <div class="grid semester-grid" style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
+                {% for semester in semesters %}
+                <a href="{% url 'semester_detail' semester.slug %}" class="card semester-card bg{{ forloop.counter }}" style="text-decoration:none; color: inherit; border-radius: 10px; padding: 20px; width: 250px; display: flex; align-items: center; gap: 15px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                    <div class="icon" style="background: white; border-radius: 10px; padding: 10px; display: flex; align-items: center; justify-content: center; width: 50px; height: 50px;">
+                        {% if forloop.counter == 1 %}
+                            <img src="{% static 'images/icon1.svg' %}" alt="First Semester Icon" style="width: 30px; height: 30px;" />
+                        {% elif forloop.counter == 2 %}
+                            <img src="{% static 'images/icon2.svg' %}" alt="Second Semester Icon" style="width: 30px; height: 30px;" />
+                        {% elif forloop.counter == 3 %}
+                            <img src="{% static 'images/icon3.svg' %}" alt="Third Semester Icon" style="width: 30px; height: 30px;" />
+                        {% elif forloop.counter == 4 %}
+                            <img src="{% static 'images/icon4.svg' %}" alt="Fourth Semester Icon" style="width: 30px; height: 30px;" />
+                        {% elif forloop.counter == 5 %}
+                            <img src="{% static 'images/icon5.svg' %}" alt="Fifth Semester Icon" style="width: 30px; height: 30px;" />
+                        {% elif forloop.counter == 6 %}
+                            <img src="{% static 'images/icon6.svg' %}" alt="Sixth Semester Icon" style="width: 30px; height: 30px;" />
+                        {% elif forloop.counter == 7 %}
+                            <img src="{% static 'images/icon7.svg' %}" alt="Seventh Semester Icon" style="width: 30px; height: 30px;" />
+                        {% elif forloop.counter == 8 %}
+                            <img src="{% static 'images/icon8.svg' %}" alt="Eighth Semester Icon" style="width: 30px; height: 30px;" />
+                        {% else %}
+                            <img src="{% static 'images/default_icon.svg' %}" alt="Semester Icon" style="width: 30px; height: 30px;" />
+                        {% endif %}
+                    </div>
+                    <div class="info" style="display: flex; flex-direction: column;">
+                        <div class="semester" style="font-weight: 600; font-size: 1.1rem; color: #333;">{{ semester.name|title }} Semester</div>
+                        <div class="subjects" style="color: #666; font-size: 0.9rem;">{{ semester.subjects.count }} Subjects</div>
+                    </div>
+                </a>
+                {% endfor %}
+            </div>
+        </div>
+    </main>
+    {% include 'mainapp/footer.html' %}
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const dropdowns = document.querySelectorAll('.dropdown');
+
+            dropdowns.forEach(dropdown => {
+                const btn = dropdown.querySelector('.dropbtn');
+                const menu = dropdown.querySelector('.dropdown-content');
+
+                btn.addEventListener('click', function(e) {
+                    if (menu) {
+                        e.preventDefault();
+                        if (menu.style.display === 'block') {
+                            menu.style.display = 'none';
+                        } else {
+                            document.querySelectorAll('.dropdown-content').forEach(dc => {
+                                dc.style.display = 'none';
+                            });
+                            menu.style.display = 'block';
+                        }
+                    }
+                });
+            });
+
+            document.addEventListener('click', function(e) {
+                if (!e.target.matches('.dropbtn')) {
+                    document.querySelectorAll('.dropdown-content').forEach(dc => {
+                        dc.style.display = 'none';
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
