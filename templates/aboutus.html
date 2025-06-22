@@ -1,0 +1,224 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>About Us - HAMROCSIT</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <style>
+        /* Additional styles for About Us page */
+        .about-header {
+            background-color: #f0f4ff;
+            padding: 2rem 0;
+            text-align: center;
+            position: relative;
+        }
+        .about-header h1 {
+            font-weight: 700;
+            font-size: 2rem;
+            color: #1e40af;
+            margin-bottom: 0.5rem;
+        }
+        .breadcrumb {
+            font-size: 0.8rem;
+            color: #6b7280;
+        }
+        .breadcrumb a {
+            color: #6b7280;
+            text-decoration: none;
+        }
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        .about-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 3rem;
+            padding: 3rem 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .about-image {
+            flex: 1;
+            background-color: #b2f5ea;
+            padding: 1rem;
+            border-radius: 12px;
+            box-shadow: 5px 5px 0 #cbd5e1;
+        }
+        .about-image img {
+            width: 100%;
+            border-radius: 12px;
+        }
+        .about-text {
+            flex: 1;
+            max-width: 600px;
+        }
+        .about-text h2 {
+            font-weight: 700;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #111827;
+        }
+        .about-text p {
+            color: #4b5563;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+        .about-features {
+            margin-top: 1rem;
+        }
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+        .feature-icon {
+            color: #059669;
+            font-size: 1.5rem;
+            margin-top: 0.2rem;
+        }
+        .feature-text {
+            color: #374151;
+        }
+        .stats-section {
+            background: white;
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgb(0 0 0 / 0.1);
+            display: flex;
+            justify-content: space-around;
+            text-align: center;
+        }
+        .stat-item {
+            flex: 1;
+            padding: 1rem;
+        }
+        .stat-number {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: #4338ca;
+        }
+        .stat-label {
+            font-size: 0.9rem;
+            color: #6b7280;
+        }
+        .team-section {
+            max-width: 1200px;
+            margin: 3rem auto;
+            text-align: center;
+        }
+        .team-section h3 {
+            font-weight: 700;
+            font-size: 1.5rem;
+            margin-bottom: 0.25rem;
+            color: #111827;
+        }
+        .team-section p {
+            color: #6b7280;
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+        }
+        .team-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+        }
+        .team-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgb(0 0 0 / 0.1);
+            width: 180px;
+            padding: 1rem;
+            text-align: center;
+        }
+        .team-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-bottom: 0.75rem;
+        }
+        .team-name {
+            font-weight: 600;
+            color: #111827;
+            margin-bottom: 0.25rem;
+        }
+        .team-role {
+            font-size: 0.85rem;
+            color: #6b7280;
+        }
+    </style>
+</head>
+<body>
+    {% include 'mainapp/nav.html' %}
+    <header class="about-header">
+        <h1>About Us</h1>
+        <div class="breadcrumb">
+            <a href="{% url 'home' %}">Home</a>
+        </div>
+    </header>
+    <section class="about-content">
+        <div class="about-image">
+            <img src="{% static 'images/img.png' %}" alt="About Us Illustration" />
+        </div>
+        <div class="about-text">
+            <h2>Who Is OURBCA?</h2>
+            <p>OURBCA is a Web and Mobile application that provides a complete set of reference materials like notes, syllabus, question banks, solutions, and much more for BCA students. We built this platform to provide the best possible resources for students so that they can excel in their academic journey.</p>
+            <div class="about-features">
+                <div class="feature-item">
+                    <span class="feature-icon">&#128221;</span>
+                    <div class="feature-text">
+                        <strong>Notes</strong><br />
+                        It is often difficult to get complete notes of all subjects. That's where we come in and provide you with handwritten or typed notes.
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">&#128218;</span>
+                    <div class="feature-text">
+                        <strong>Solutions</strong><br />
+                        We also help you excel by providing the best possible solutions to every question of past papers or important questions in general.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="stats-section">
+        <div class="stat-item">
+            <div class="stat-number">{{ stats.students_enrolled|default:"80021" }}</div>
+            <div class="stat-label">+ Students Enrolled</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number">{{ stats.subjects|default:"65" }}</div>
+            <div class="stat-label">+ Subjects</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number">{{ stats.qnas|default:"6306" }}</div>
+            <div class="stat-label">+ QNAs</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number">{{ stats.total_visitors|default:"18.5M+" }}</div>
+            <div class="stat-label">+ Total Visitors</div>
+        </div>
+    </section>
+    <section class="team-section">
+        <h3>Meet With <span style="color:#059669;">Our Team</span></h3>
+        <p>Our Experts who have great role in improving OURBCA contents</p>
+        <div class="team-grid">
+            {% for member in team_members %}
+            <div class="team-card">
+                <img src="{{ member.image.url }}" alt="{{ member.name }}" />
+                <div class="team-name">{{ member.name }}</div>
+                <div class="team-role">{{ member.role }}</div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+    {% include 'mainapp/footer.html' %}
+</body>
+</html>

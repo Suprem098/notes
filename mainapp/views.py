@@ -1,5 +1,15 @@
 import json
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render
+from .models import TeamMember, SiteStatistics
+
+def about_us(request):
+    team_members = TeamMember.objects.all()
+    stats = SiteStatistics.objects.first()
+    context = {
+        'team_members': team_members,
+        'stats': stats,
+    }
+    return render(request, 'aboutus.html', context)
 from .models import Semester, Subject, Notice, Chapter, Note, Faculty
 import os
 from django.conf import settings
@@ -179,3 +189,35 @@ def note_detail(request, note_id):
         'current_page': 'semester',
     }
     return render(request, 'mainapp/note_detail.html', context)
+
+from django.views.decorators.csrf import csrf_exempt
+from django.http import HttpResponseRedirect
+
+@csrf_exempt
+def feedback(request):
+    from .models import Feedback
+    if request.method == 'POST':
+        name = request.POST.get('name', '').strip()
+        email = request.POST.get('email', '').strip()
+        message = request.POST.get('message', '').strip()
+
+        if name and email and message:
+            # Save feedback to database
+            Feedback.objects.create(
+                name=name,
+                email=email,
+                message=message
+            )
+            return render(request, 'mainapp/feedback.html', {
+                'success': True,
+                'current_page': 'feedback',
+            })
+        else:
+            return render(request, 'mainapp/feedback.html', {
+                'error': 'Please fill in all fields.',
+                'current_page': 'feedback',
+            })
+    else:
+        return render(request, 'mainapp/feedback.html', {
+            'current_page': 'feedback',
+        })

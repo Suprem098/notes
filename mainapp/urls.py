@@ -13,4 +13,6 @@ urlpatterns = [
     path('account/create/', views.create_account, name='create_account'),
     path('notices/', views.notices, name='notices'),
     path('contact/', views.contact, name='contact'),
+    path('about-us/', views.about_us, name='about_us'),
+    path('feedback/', views.feedback, name='feedback'),
 ]

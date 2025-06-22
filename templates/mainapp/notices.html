@@ -288,6 +288,12 @@
                     document.querySelectorAll('.dropdown-content').forEach(dc => {
                         dc.style.display = 'none';
                     });
+                    // Also close any open submenu or active dropdowns if needed
+                    document.querySelectorAll('.nav-link.active').forEach(link => {
+                        if (!link.classList.contains('dropbtn')) {
+                            link.classList.remove('active');
+                        }
+                    });
                 }
             });
 

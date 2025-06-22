@@ -1,4 +1,6 @@
 <footer>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+
     <div class="column info">
       <div class="logo"><span>OUR</span>BCA</div>
       <p>Our BCA is a comprehensive web and mobile platform that provides BCA students with resources like notes, syllabi, question banks, solved past papers, practical files, and free entrance preparation materials — all in one place.</p>
@@ -12,11 +14,20 @@
     <div class="column">
       <div class="section-title">Links</div>
       <ul>
-        <li><a href="#">About Us</a></li>
+        <li><a href="{% url 'about_us' %}">About Us</a></li>
         <li><a href="#">FAQs</a></li>
         <li><a href="#">Sitemap</a></li>
         <li><a href="#">Privacy Policy</a></li>
         <li><a href="#">Terms and Conditions</a></li>
+      </ul>
+    </div>
+    <div class="column">
+      <div class="section-title">Follow Us</div>
+      <ul class="social-links" style="display: flex; gap: 10px; padding-left: 0; list-style: none; font-family: 'FontAwesome', sans-serif;">
+        <li><a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" style="background-color: #3b5998; color: white; padding: 8px 12px; border-radius: 4px; display: inline-block; text-decoration: none; font-family: 'FontAwesome', sans-serif;"><i class="fab fa-facebook-f"></i></a></li>
+        <li><a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer" style="background-color: #1da1f2; color: white; padding: 8px 12px; border-radius: 4px; display: inline-block; text-decoration: none; font-family: 'FontAwesome', sans-serif;"><i class="fab fa-twitter"></i></a></li>
+        <li><a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer" style="background-color: #ff0000; color: white; padding: 8px 12px; border-radius: 4px; display: inline-block; text-decoration: none; font-family: 'FontAwesome', sans-serif;"><i class="fab fa-youtube"></i></a></li>
+        <li><a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" style="background-color: #e4405f; color: white; padding: 8px 12px; border-radius: 4px; display: inline-block; text-decoration: none; font-family: 'FontAwesome', sans-serif;"><i class="fab fa-instagram"></i></a></li>
       </ul>
     </div>
 </footer>

@@ -15,7 +15,7 @@
         {# Removed banner section as requested #}
          <section class="banner" style="text-align: center;">
             <h2>{{ semester_name }}</h2>
-            <p class="breadcrumb" style="display: inline-block;">Home // {{ semester_name }} // <a href="#">Subjects</a></p>
+            <p class="breadcrumb" style="display: inline-block;" <a href="{% url 'home' %}" >Home</a> //{{ semester_name }} // <a href="#">Subjects</a></p>
         </section> 
 
         <section class="content" style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">

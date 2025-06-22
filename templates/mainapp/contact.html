@@ -133,30 +133,36 @@
     {% include 'mainapp/nav.html' %}
     <div class="container">
         <div class="contact-form">
-            <h2>Get In Touch</h2>
+            <h2>Give us your opinion</h2>
             <p class="description">If you have any issue or query related to content or tech related stuff then please feel free to contact us. We are always ready to help you.</p>
         
-            <form>
-                <input type="text" placeholder="Your Name" name="name" />
-                <input type="email" placeholder="Your Email" name="email" />
-                <input type="text" placeholder="Your Subject" name="subject" />
-                <textarea placeholder="Write Your Message" name="message"></textarea>
-                <button type="submit">SendMessage</button>
+            <form method="post" action="{% url 'contact' %}">
+                {% csrf_token %}
+                <input type="text" placeholder="Your Name" name="name" required />
+                <input type="email" placeholder="Your Email" name="email" required />
+                <input type="text" placeholder="Your Subject" name="subject" required />
+                <textarea placeholder="Write Your Message" name="message" required></textarea>
+                <button type="submit">Send Message</button>
             </form>
+            {% if success %}
+                <div class="alert" style="background-color: #d1e7dd; color: #0f5132;">Your message has been sent successfully.</div>
+            {% elif error %}
+                <div class="alert">{{ error }}</div>
+            {% endif %}
         </div>
         <div class="contact-info">
             <div class="info-item">
                 <div class="info-icon email">&#9993;</div>
                 <div>
                     <div class="info-title">Email Us</div>
-                    <div class="info-text">info@ourBCA.com</div>
+                    <div class="info-text">maheshdahal012@gmail.com</div>
                 </div>
             </div>
             <div class="info-item">
                 <div class="info-icon phone">&#128222;</div>
                 <div>
                     <div class="info-title">Text/Call Us</div>
-                    <div class="info-text">+977 9876543210</div>
+                    <div class="info-text">+977 9865460531</div>
                 </div>
             </div>
             <div class="info-item">
