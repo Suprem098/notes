@@ -473,13 +473,17 @@ footer {
   justify-content: space-between;
   padding: 2rem 3rem;
   background-color: #f0f4ff;
-  color: #2563eb;
+  color:black;
   font-size: 1rem;
   flex-wrap: wrap;
   gap: 1.5rem;
   user-select: none;
   border-top: 2px solid #2563eb;
   box-shadow: 0 0 20px #2563eb44;
+}
+footer .links-column ul li a {
+text-decoration: none;
+color: black;
 }
 
 /* Semester cards grid */
@@ -568,13 +572,14 @@ footer {
 .footer {
   background-color: #f0f4ff;
   text-align: center;
-  color: #2563eb;
+  color: black;
   font-size: 0.9rem;
   padding: 1rem 0;
   width: 100%;
   border-top: 2px solid #2563eb;
   user-select: none;
   box-shadow: 0 0 20px #2563eb44;
+  text-decoration: none;
 }
 
 .column {

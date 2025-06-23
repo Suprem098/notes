@@ -15,4 +15,5 @@ urlpatterns = [
     path('contact/', views.contact, name='contact'),
     path('about-us/', views.about_us, name='about_us'),
     path('feedback/', views.feedback, name='feedback'),
+    path('syllabus-upload/', views.syllabus_list, name='syllabus_upload'),
 ]

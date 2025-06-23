@@ -1,10 +1,11 @@
 from django.contrib import admin
-from .models import TeamMember, SiteStatistics, Feedback
+from .models import TeamMember, SiteStatistics, Feedback, Syllabus
 
 admin.site.register(Feedback)
-
 admin.site.register(TeamMember)
 admin.site.register(SiteStatistics)
+admin.site.register(Syllabus)
+
 from .models import Faculty, Semester, Subject, Notice, Chapter, Note, ContactMessage
 
 class ChapterInline(admin.TabularInline):

@@ -1,7 +1,7 @@
 import json
 from django.shortcuts import render
 from .models import TeamMember, SiteStatistics
-
+from django.shortcuts import get_list_or_404
 def about_us(request):
     team_members = TeamMember.objects.all()
     stats = SiteStatistics.objects.first()
@@ -192,6 +192,9 @@ def note_detail(request, note_id):
 
 from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponseRedirect
+from django.contrib import messages
+from .forms import SyllabusForm
+from .models import Syllabus
 
 @csrf_exempt
 def feedback(request):
@@ -221,3 +224,9 @@ def feedback(request):
         return render(request, 'mainapp/feedback.html', {
             'current_page': 'feedback',
         })
+
+
+
+def syllabus_list(request):
+    syllabi = Syllabus.objects.select_related('semester').all().order_by('semester__name', '-uploaded_at')
+    return render(request, 'mainapp/syllabus_list.html', {'syllabi': syllabi})

@@ -55,7 +55,7 @@ class Notice(models.Model):
     def __str__(self):
         return f"{self.title} - {self.date}"
 
-# Extend User model if needed, or use default User model for login info
+
 
 class Chapter(models.Model):
     subject = models.ForeignKey(Subject, on_delete=models.CASCADE, related_name='subject_chapters')
@@ -110,3 +110,11 @@ class Feedback(models.Model):
 
     def __str__(self):
         return f"Feedback from {self.name} - {self.email}"
+
+class Syllabus(models.Model):
+    semester = models.ForeignKey(Semester, on_delete=models.CASCADE, related_name='syllabi')
+    file = models.FileField(upload_to='syllabi/')
+    uploaded_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"Syllabus for {self.semester.name} uploaded on {self.uploaded_at.strftime('%Y-%m-%d')}"

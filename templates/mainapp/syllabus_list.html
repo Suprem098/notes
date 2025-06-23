@@ -1,0 +1,35 @@
+
+
+{% block content %}
+<div class="syllabus-header">
+  <h2 class="title">Syllabus List</h2>
+  <p class="subtitle">Browse and download the latest syllabus for each semester</p>
+</div>
+{% if syllabi %}
+  <div class="syllabus-list-box">
+    <div class="grid syllabus-grid">
+      {% for syllabus in syllabi %}
+        <div class="card syllabus-card" tabindex="0" aria-label="Syllabus for {{ syllabus.semester.name }}">
+          <div class="card-header">
+            <h3 class="syllabus-title">{{ syllabus.semester.name }}</h3>
+            <span class="syllabus-icon" title="Syllabus">&#128196;</span>
+          </div>
+          <p class="syllabus-description">No description available.</p>
+          <div class="card-footer">
+            <div class="footer-actions">
+              <a href="{{ syllabus.file.url }}" download class="btn-download" aria-label="Download syllabus for {{ syllabus.semester.name }}">
+                &#128229; Download PDF
+              </a>
+              <a href="{{ syllabus.file.url }}" target="_blank" rel="noopener noreferrer" class="btn-view" aria-label="View syllabus for {{ syllabus.semester.name }}">
+                &#128065; View PDF
+              </a>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+{% else %}
+  <p>No syllabus files available.</p>
+{% endif %}
+{% endblock %}
