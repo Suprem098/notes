@@ -1,7 +1,10 @@
 import json
-from django.shortcuts import render
-from .models import TeamMember, SiteStatistics
+from django.shortcuts import render, redirect, get_object_or_404
+from .models import TeamMember, SiteStatistics, BlogPost
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_list_or_404
+from django.contrib import messages
+from django.utils import timezone
 def about_us(request):
     team_members = TeamMember.objects.all()
     stats = SiteStatistics.objects.first()
@@ -260,3 +263,38 @@ def feedback(request):
 def syllabus_list(request):
     syllabi = Syllabus.objects.select_related('semester').all().order_by('semester__name', '-uploaded_at')
     return render(request, 'mainapp/syllabus_list.html', {'syllabi': syllabi})
+
+def community_list(request):
+    posts = BlogPost.objects.all().order_by('-created_at')
+    context = {
+        'posts': posts,
+        'current_page': 'community',
+    }
+    return render(request, 'mainapp/community.html', context)
+
+@login_required
+def community_create(request):
+    if request.method == 'POST':
+        title = request.POST.get('title', '').strip()
+        content = request.POST.get('content', '').strip()
+        if title and content:
+            BlogPost.objects.create(
+                title=title,
+                content=content,
+                author=request.user,
+                created_at=timezone.now(),
+                updated_at=timezone.now()
+            )
+            messages.success(request, 'Blog post created successfully.')
+            return redirect('community')
+        else:
+            messages.error(request, 'Please fill in all fields.')
+    return render(request, 'mainapp/community_create.html', {'current_page': 'community'})
+
+def community_detail(request, post_id):
+    post = get_object_or_404(BlogPost, id=post_id)
+    context = {
+        'post': post,
+        'current_page': 'community',
+    }
+    return render(request, 'mainapp/community_detail.html', context)
