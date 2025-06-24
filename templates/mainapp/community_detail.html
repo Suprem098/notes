@@ -1,0 +1,16 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}" />
+ {% include 'mainapp/nav.html' %}
+{% block content %}
+<div class="community-detail-container" style="max-width: 800px; margin: 40px auto; padding: 30px; background: #ffffff; border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.1); font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+    <h1 class="community-detail-title" style="font-size: 2.6rem; font-weight: 700; color: #1e40af; margin-bottom: 20px;">{{ post.title }}</h1>
+    <div class="community-detail-meta" style="font-size: 1rem; color: #4b5563; margin-bottom: 30px;">
+        By {{ post.author.get_full_name|default:post.author.username }} on {{ post.created_at|date:"M d, Y" }}
+    </div>
+    <div class="community-detail-content" style="font-size: 1.2rem; line-height: 1.8; color: #333; white-space: pre-wrap; margin-bottom: 30px;">
+        {{ post.content|linebreaks }}
+    </div>
+    <a href="{% url 'community' %}" style="font-size: 1rem; color: #2563eb; text-decoration: none; font-weight: 600; border: 1px solid #2563eb; padding: 8px 16px; border-radius: 6px; transition: background-color 0.3s ease, color 0.3s ease;">Back to Community</a>
+</div>
+ {% include 'mainapp/footer.html' %}
+{% endblock %}

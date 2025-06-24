@@ -1,5 +1,227 @@
 /* Existing styles */
 
+/* Community Blog Styles */
+.community-container {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.community-container h1 {
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+    color: #333;
+    text-align: center;
+}
+
+.community-post-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.community-post-list li {
+    background: #fff;
+    margin-bottom: 15px;
+    padding: 15px 20px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    transition: box-shadow 0.3s ease;
+}
+
+.community-post-list li:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.community-post-title {
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: #007BFF;
+    text-decoration: none;
+}
+
+.community-post-title:hover {
+    text-decoration: underline;
+}
+
+.community-post-meta {
+    font-size: 0.9rem;
+    color: #666;
+    margin-top: 6px;
+}
+
+/* Community Create Form */
+.community-create-form {
+    max-width: 600px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 25px 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.community-create-form h1 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #333;
+}
+
+.community-create-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #444;
+}
+
+.community-create-form input[type="text"],
+.community-create-form textarea {
+    width: 100%;
+    padding: 10px 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: border-color 0.3s ease;
+}
+
+.community-create-form input[type="text"]:focus,
+.community-create-form textarea:focus {
+    border-color: #007BFF;
+    outline: none;
+}
+
+.community-create-form button {
+    display: block;
+    width: 100%;
+    padding: 12px 0;
+    background-color: #007BFF;
+    border: none;
+    border-radius: 6px;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.community-create-form button:hover {
+    background-color: #0056b3;
+}
+
+/* Community blog styles */
+.community-container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.community-container h1 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #007BFF;
+    padding-bottom: 8px;
+}
+
+.community-post-list {
+    list-style: none;
+    padding: 0;
+}
+
+.community-post-list li {
+    background-color: #fff;
+    margin-bottom: 12px;
+    padding: 15px 20px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    transition: box-shadow 0.3s ease;
+}
+
+.community-post-list li:hover {
+    box-shadow: 0 4px 12px rgba(0,123,255,0.2);
+}
+
+.community-post-list a {
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: #007BFF;
+    text-decoration: none;
+}
+
+.community-post-list a:hover {
+    text-decoration: underline;
+}
+
+.community-post-meta {
+    font-size: 0.9rem;
+    color: #666;
+    margin-top: 5px;
+}
+
+.community-create-form label {
+    font-weight: 600;
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.community-create-form input[type="text"],
+.community-create-form textarea {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-family: inherit;
+    box-sizing: border-box;
+}
+
+.community-create-form button {
+    margin-top: 15px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.community-create-form button:hover {
+    background-color: #0056b3;
+}
+
+.community-detail-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #222;
+    margin-bottom: 10px;
+}
+
+.community-detail-meta {
+    font-size: 0.9rem;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.community-detail-content {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #333;
+    white-space: pre-wrap;
+}
+
 /* Improved dropdown styling for account menu */
 .navbar .nav-links .dropdown-content {
     background-color: white;
