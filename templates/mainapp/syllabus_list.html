@@ -7,8 +7,8 @@
 {% block content %}
 
 <div class="syllabus-header">
-  <h2 class="title">Syllabus List</h2>
-  <p class="subtitle">Browse and download the latest syllabus for each semester</p>
+  <h2 class="title" style="margin-bottom: 5px; font-family: 'Times New Roman', Times, serif;">Syllabus List</h2>
+  <p class="subtitle" style="margin-bottom: 20px;">Browse and download the latest syllabus for each semester</p>
 </div>
 {% if syllabi %}
   <div class="syllabus-list-box">
@@ -16,15 +16,15 @@
       {% for syllabus in syllabi %}
         <div class="card syllabus-card" tabindex="0" aria-label="Syllabus for {{ syllabus.semester.name }}">
           <div class="card-header">
-            <h3 class="syllabus-title">{{ syllabus.semester.name }}</h3>
+            <h3 class="syllabus-title">{{ syllabus.semester.name }}:</h3>
           </div>
-          <p class="syllabus-description">No description available.</p>
-          <div class="card-footer">
+         
+          <div class="card-footer" style="margin-bottom: 30px;">
             <div class="footer-actions">
-              <a href="{{ syllabus.file.url }}" download class="btn-download" aria-label="Download syllabus for {{ syllabus.semester.name }}">
-                &#128229; Download PDF
+              <a href="{{ syllabus.file.url }}" download class="btn-download" style="margin-bottom: 10px; color: rgb(0, 6, 6); background-color: rgb(119, 194, 206);" aria-label="Download syllabus for {{ syllabus.semester.name }}">
+                &#128229; Download PDF <br>
               </a>
-              <a href="{{ syllabus.file.url }}" target="_blank" rel="noopener noreferrer" class="btn-view" aria-label="View syllabus for {{ syllabus.semester.name }}">
+              <a href="{{ syllabus.file.url }}" target="_blank" rel="noopener noreferrer" class="btn-view" style="color: black;" aria-label="View syllabus for {{ syllabus.semester.name }}">
                 &#128065; View PDF
               </a>
             </div>
@@ -39,6 +39,5 @@
 {% endif %}
 {% endblock %}
 </div>
-
 
 {% include 'mainapp/footer.html' %}  

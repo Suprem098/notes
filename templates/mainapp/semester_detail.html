@@ -14,8 +14,8 @@
     <main>
         {# Removed banner section as requested #}
          <section class="banner" style="text-align: center;">
-            <h2>{{ semester_name }}</h2>
-            <p class="breadcrumb" style="display: inline-block;" <a href="{% url 'home' %}" >Home</a> //{{ semester_name }} // <a href="#">Subjects</a></p>
+            <h2>{{ semester_name }}:</h2>
+           
         </section> 
 
         <section class="content" style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
@@ -41,8 +41,8 @@
                             {% endif %}
                         </div>
                         <div style="margin-top: auto; display: flex; justify-content: space-between; align-items: center;">
-                            <div style="color: #2563eb; font-size: 20px; cursor: pointer;">&#9733;</div>
-                            <a href="{% url 'chapter_list_by_subject' subject.id %}" style="background-color: #10b981; color: white; padding: 10px 16px; border-radius: 6px; text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 8px;">
+                            <div style="color: #edeb65; font-size: 20px; cursor: pointer;">&#9733;</div>
+                            <a href="{% url 'chapter_list_by_subject' subject.id %}" style="background-color: #7ab8e8; color: white; padding: 10px 16px; border-radius: 6px; text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 8px;">
                                 Explore Chapters <span style="font-size: 20px;">&#10145;</span>
                             </a>
                         </div>
