@@ -1,10 +1,16 @@
 from django.contrib import admin
-from .models import TeamMember, SiteStatistics, Feedback, Syllabus
+from django.contrib.auth.models import User
+from django.contrib.auth.admin import UserAdmin
+from .models import TeamMember, SiteStatistics, Feedback, Syllabus, BlogPost
 
 admin.site.register(Feedback)
 admin.site.register(TeamMember)
 admin.site.register(SiteStatistics)
 admin.site.register(Syllabus)
+admin.site.register(BlogPost)
+
+admin.site.unregister(User)
+admin.site.register(User, UserAdmin)
 
 from .models import Faculty, Semester, Subject, Notice, Chapter, Note, ContactMessage
 

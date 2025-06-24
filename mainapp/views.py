@@ -298,4 +298,13 @@ def community_detail(request, post_id):
         'current_page': 'community',
     }
     return render(request, 'mainapp/community_detail.html', context)
- 
+
+from django.contrib.auth.decorators import user_passes_test
+
+@login_required
+@user_passes_test(lambda u: u.is_superuser or u.is_staff)
+def community_delete(request, post_id):
+    post = get_object_or_404(BlogPost, id=post_id)
+    post.delete()
+    messages.success(request, "Blog post deleted successfully.")
+    return redirect('community')
