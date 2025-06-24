@@ -298,3 +298,4 @@ def community_detail(request, post_id):
         'current_page': 'community',
     }
     return render(request, 'mainapp/community_detail.html', context)
+ 
