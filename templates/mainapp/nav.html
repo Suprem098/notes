@@ -31,8 +31,19 @@
             <li class="dropdown">
                 <a href="#" class="nav-link dropbtn {% if current_page == 'account' or current_page == 'sign_in' or current_page == 'create_account' %}active{% endif %}">Account &#x25BE;</a>
                 <ul class="dropdown-content">
-                    <li><a href="{% url 'sign_in' %}"><span class="icon">&#x21AA;</span> Sign In</a></li>
-                    <li><a href="{% url 'create_account' %}"><span class="icon">&#x2795;</span> Create Account</a></li>
+                    {% if user.is_authenticated %}
+                        <li>
+                            <form method="post" action="{% url 'logout' %}" style="display:inline;">
+                                {% csrf_token %}
+                                <button type="submit" style="background:none; border:none; padding:0; margin:0; cursor:pointer; color:inherit; font:inherit; white-space: nowrap;">
+                                    <span class="icon">&#x21AA;</span> Logout
+                                </button>
+                            </form>
+                        </li>
+                    {% else %}
+                        <li><a href="{% url 'sign_in' %}"><span class="icon">&#x21AA;</span> Sign In</a></li>
+                        <li><a href="{% url 'create_account' %}"><span class="icon">&#x2795;</span> Create Account</a></li>
+                    {% endif %}
                 </ul>
             </li>
         </ul>

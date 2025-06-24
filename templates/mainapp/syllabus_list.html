@@ -1,6 +1,21 @@
+{% load static %}
+{% include 'mainapp/nav.html' %}
 
+<link rel="stylesheet" href="{% static 'css/style.css' %}" />
 
+<style>
+  body { display: flex; 
+    flex-direction: column; 
+    min-height: 100vh;
+   }
+.content { 
+  flex-grow: 1;
+ }
+
+</style>
+<div class="content">
 {% block content %}
+
 <div class="syllabus-header">
   <h2 class="title">Syllabus List</h2>
   <p class="subtitle">Browse and download the latest syllabus for each semester</p>
@@ -31,5 +46,10 @@
   </div>
 {% else %}
   <p>No syllabus files available.</p>
+ 
 {% endif %}
 {% endblock %}
+</div>
+
+
+{% include 'mainapp/footer.html' %}  
