@@ -1,4 +1,5 @@
 from django.urls import path
+from django.contrib.auth import views as auth_views
 from . import views
 
 urlpatterns = [
@@ -16,4 +17,7 @@ urlpatterns = [
     path('about-us/', views.about_us, name='about_us'),
     path('feedback/', views.feedback, name='feedback'),
     path('syllabus-upload/', views.syllabus_list, name='syllabus_upload'),
+    # Add login and logout views
+    path('login/', auth_views.LoginView.as_view(template_name='mainapp/sign_in.html'), name='login'),
+    path('logout/', auth_views.LogoutView.as_view(next_page='home'), name='logout'),
 ]

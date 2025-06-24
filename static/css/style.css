@@ -1,5 +1,69 @@
 /* Existing styles */
 
+/* Improved dropdown styling for account menu */
+.navbar .nav-links .dropdown-content {
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    min-width: 180px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    padding: 0.5rem 0;
+    z-index: 1000;
+}
+
+/* Fix dropdown overflow for last dropdown (Account) */
+.navbar .nav-links li.dropdown:last-child > ul.dropdown-content {
+    right: 0;
+    left: auto;
+}
+
+.navbar .nav-links .dropdown-content li {
+    padding: 0.5rem 1rem;
+    list-style: none;
+}
+
+.navbar .nav-links .dropdown-content li a,
+.navbar .nav-links .dropdown-content li form button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #333;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    width: auto;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.navbar .nav-links .dropdown-content li a span.icon,
+.navbar .nav-links .dropdown-content li form button span.icon {
+    font-size: 1.5rem;
+    line-height: 1;
+}
+
+.navbar .nav-links .dropdown-content li a,
+.navbar .nav-links .dropdown-content li form button {
+    white-space: nowrap;
+}
+
+.navbar .nav-links .dropdown-content li a:hover,
+.navbar .nav-links .dropdown-content li form button:hover {
+    background-color: #f0f0f0;
+    color: #2563eb;
+    border-radius: 6px;
+}
+
+.navbar .nav-links .dropdown-content li form button {
+    padding: 0;
+    margin: 0;
+}
+
+.navbar .nav-links .dropdown-content li .icon {
+    font-size: 1.2rem;
+}
+
 /* Remove ellipsis dots from subject descriptions */
 .subject-card p {
     white-space: normal !important;

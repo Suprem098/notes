@@ -70,9 +70,39 @@ def sign_in(request):
     context = {'current_page': 'account'}
     return render(request, 'mainapp/sign_in.html', context)
 
+from django.contrib.auth.models import User
+from django.contrib.auth import authenticate, login
+from django.contrib import messages
+from django.shortcuts import render, redirect
+
 def create_account(request):
-    context = {'current_page': 'account'}
-    return render(request, 'mainapp/create_account.html', context)
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        confirm_password = request.POST.get('confirm_password')
+
+        if not username or not password or not confirm_password:
+            messages.error(request, "All fields are required.")
+            return render(request, 'mainapp/create_account.html', {'current_page': 'account'})
+
+        if password != confirm_password:
+            messages.error(request, "Passwords do not match.")
+            return render(request, 'mainapp/create_account.html', {'current_page': 'account'})
+
+        if User.objects.filter(username=username).exists():
+            messages.error(request, "Username already exists.")
+            return render(request, 'mainapp/create_account.html', {'current_page': 'account'})
+
+        user = User.objects.create_user(username=username, password=password)
+        user.save()
+
+        # Automatically log in the user after successful registration
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            return redirect('home')
+
+    return render(request, 'mainapp/create_account.html', {'current_page': 'account'})
 
 from django.shortcuts import redirect
 from .models import ContactMessage
