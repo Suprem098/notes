@@ -127,3 +127,6 @@ MEDIA_ROOT = BASE_DIR / 'media'
 # Add login redirect URL to home page
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
+
+# Add this line to specify the login URL for @login_required decorator
+LOGIN_URL = '/account/signin/'

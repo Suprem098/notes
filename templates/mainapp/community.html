@@ -1,14 +1,20 @@
 {% load static %}
 {% block content %}
-<h1>Community Blog</h1>
-<a href="{% url 'community_create' %}">Create New Post</a>
-<ul>
-    {% for post in posts %}
-    <li>
-        <a href="{% url 'community_detail' post.id %}">{{ post.title }}</a> by {{ post.author.username }} on {{ post.created_at|date:"M d, Y" }}
-    </li>
-    {% empty %}
-    <li>No posts yet.</li>
-    {% endfor %}
-</ul>
+<link rel="stylesheet" href="{% static 'css/style.css' %}" />
+ {% include 'mainapp/nav.html' %}
+<div class="community-container" style="max-width: 900px; margin: 40px auto; padding: 30px; background: #ffffff; border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.1); font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+    <h1 style="font-size: 2.8rem; color: #1e40af; margin-bottom: 30px; text-align: center; font-weight: 700;">Community Blog</h1>
+    <a href="{% url 'community_create' %}" class="btn btn-primary" style="margin-bottom: 30px; display: inline-block; font-size: 1.1rem; padding: 12px 24px; border-radius: 8px; box-shadow: 0 4px 12px rgba(30, 64, 175, 0.4); transition: background-color 0.3s ease, box-shadow 0.3s ease,text-decoration:none;">Create New Post</a>
+    <ul class="community-post-list" style="padding-left: 0;">
+        {% for post in posts %}
+        <li style="background: #f0f4ff; margin-bottom: 18px; padding: 20px 25px; border-radius: 10px; border: 1px solid #d1d5db; transition: box-shadow 0.3s ease, transform 0.3s ease;">
+            <a href="{% url 'community_detail' post.id %}" style="font-weight: 700; font-size: 1.3rem; color: #2563eb; text-decoration: none; transition: color 0.3s ease;">{{ post.title }}</a>
+            <div style="font-size: 1rem; color: #4b5563; margin-top: 8px;">by {{ post.author.get_full_name|default:post.author.username }} on {{ post.created_at|date:"M d, Y" }}</div>
+        </li>
+        {% empty %}
+        <li style="font-size: 1.1rem; color: #6b7280;">No posts yet.</li>
+        {% endfor %}
+    </ul>
+</div>
+ {% include 'mainapp/footer.html' %}
 {% endblock %}
