@@ -244,11 +244,7 @@
                             </span>
                             {% endif %}
                         </div>
-                        <div style="margin-top: auto; align-self: flex-end;">
-                            <a href="#" style="background-color: teal; color: white; padding: 8px 12px; border-radius: 4px; text-decoration: none; font-weight: bold; display: inline-flex; align-items: center; gap: 5px;">
-                                View Details &#10145;
-                            </a>
-                        </div>
+                        
                     </div>
                 {% endfor %}
             {% endfor %}
@@ -267,14 +263,14 @@
                 const menu = dropdown.querySelector('.dropdown-content');
 
                 btn.addEventListener('click', function(e) {
-                    // Only prevent default if the dropdown has a menu
+                    
                     if (menu) {
                         e.preventDefault();
-                        // Toggle dropdown visibility
+                      
                         if (menu.style.display === 'block') {
                             menu.style.display = 'none';
                         } else {
-                            // Hide other dropdowns
+                         
                             document.querySelectorAll('.dropdown-content').forEach(dc => {
                                 dc.style.display = 'none';
                             });
@@ -284,13 +280,13 @@
                 });
             });
 
-            // Close dropdowns if clicked outside
+         
             document.addEventListener('click', function(e) {
                 if (!e.target.matches('.dropbtn')) {
                     document.querySelectorAll('.dropdown-content').forEach(dc => {
                         dc.style.display = 'none';
                     });
-                    // Also close any open submenu or active dropdowns if needed
+                    
                     document.querySelectorAll('.nav-link.active').forEach(link => {
                         if (!link.classList.contains('dropbtn')) {
                             link.classList.remove('active');
@@ -299,7 +295,7 @@
                 }
             });
 
-            // Calendar rendering and notices JSON debug
+     
             console.log('Notices JSON:', '{{ notices_json|escapejs }}');
             const notices = JSON.parse('{{ notices_json|escapejs }}');
             console.log('Parsed notices:', notices);
@@ -314,7 +310,7 @@
                 const calendarGrid = document.getElementById('calendarGrid');
                 calendarGrid.innerHTML = '';
 
-                // Add day names
+                
                 const dayNames = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
                 dayNames.forEach(day => {
                     const dayElem = document.createElement('div');
@@ -326,20 +322,20 @@
                 const year = date.getFullYear();
                 const month = date.getMonth();
 
-                // First day of the month
+             
                 const firstDay = new Date(year, month, 1);
-                // Last day of the month
+              
                 const lastDay = new Date(year, month + 1, 0);
-                // Day of week for first day
+            
                 const startDay = firstDay.getDay();
 
-                // Fill empty slots before first day
+              
                 for (let i = 0; i < startDay; i++) {
                     const emptyCell = document.createElement('div');
                     calendarGrid.appendChild(emptyCell);
                 }
 
-                // Fill days
+           
                 for (let day = 1; day <= lastDay.getDate(); day++) {
                     const dateStr = `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
                     const dateCell = document.createElement('div');
