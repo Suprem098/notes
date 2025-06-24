@@ -4,10 +4,10 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>About Us - HAMROCSIT</title>
+    <title>About Us - OurBCA</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}" />
     <style>
-        /* Additional styles for About Us page */
+       
         .about-header {
             background-color: #f0f4ff;
             padding: 2rem 0;
@@ -157,12 +157,7 @@
 </head>
 <body>
     {% include 'mainapp/nav.html' %}
-    <header class="about-header">
-        <h1>About Us</h1>
-        <div class="breadcrumb">
-            <a href="{% url 'home' %}">Home</a>
-        </div>
-    </header>
+   
     <section class="about-content">
         <div class="about-image">
             <img src="{% static 'images/img.png' %}" alt="About Us Illustration" />
