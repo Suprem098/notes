@@ -21,7 +21,6 @@ urlpatterns = [
     path('community/create/', views.community_create, name='community_create'),
     path('community/<int:post_id>/', views.community_detail, name='community_detail'),
     path('community/<int:post_id>/delete/', views.community_delete, name='community_delete'),
-    # Add login and logout views
     path('login/', auth_views.LoginView.as_view(template_name='mainapp/sign_in.html'), name='login'),
     path('logout/', auth_views.LogoutView.as_view(next_page='home'), name='logout'),
 ]
