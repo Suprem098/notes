@@ -30,22 +30,22 @@
   font-size: 24px;
 }
 .notice-icon.program {
-  background-color: #4caf50; /* green */
+  background-color: #4caf50; 
 }
 .notice-icon.notice {
-  background-color: #673ab7; /* purple */
+  background-color: #673ab7; 
 }
 .notice-icon.result {
-  background-color: #009688; /* teal */
+  background-color: #009688; 
 }
 .notice-icon.exam {
-  background-color: #f44336; /* red */
+  background-color: #f44336;
 }
 .notice-icon.schedule {
-  background-color: #3f51b5; /* indigo */
+  background-color: #3f51b5; 
 }
 .notice-icon.holiday {
-  background-color: #f44336; /* Red */
+  background-color: #f44336; /
 }
 .notice-title {
   font-weight: 900;
@@ -221,4 +221,3 @@
 .dropdown-content a:hover {
   background-color: #e0e7ff;
 }
-</create_file>
