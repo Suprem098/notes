@@ -105,10 +105,12 @@
     font-weight: 700;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    text-decoration: none;
 }
 
 .community-create-form button:hover {
     background-color: #0056b3;
+    text-decoration: none;
 }
 
 
