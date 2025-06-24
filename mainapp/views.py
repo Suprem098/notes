@@ -261,7 +261,7 @@ def feedback(request):
 
 
 def syllabus_list(request):
-    syllabi = Syllabus.objects.select_related('semester').all().order_by('-uploaded_at')
+    syllabi = Syllabus.objects.select_related('semester').all().order_by('uploaded_at')
     return render(request, 'mainapp/syllabus_list.html', {'syllabi': syllabi})
 
 def community_list(request):
