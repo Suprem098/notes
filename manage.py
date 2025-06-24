@@ -18,4 +18,3 @@ if __name__ == '__main__':
     main()
 
 
-# This file is part of BCA_website.

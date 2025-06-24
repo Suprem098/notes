@@ -99,7 +99,7 @@ def create_account(request):
         user = User.objects.create_user(username=username, password=password)
         user.save()
 
-        # Automatically log in the user after successful registration
+        
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
@@ -238,7 +238,7 @@ def feedback(request):
         message = request.POST.get('message', '').strip()
 
         if name and email and message:
-            # Save feedback to database
+            
             Feedback.objects.create(
                 name=name,
                 email=email,

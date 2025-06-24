@@ -12,7 +12,7 @@
     {% include 'mainapp/nav.html' %}
 
     <main>
-        {# Removed banner section as requested #}
+       
          <section class="banner" style="text-align: center;">
             <h2>{{ semester_name }}:</h2>
            
@@ -61,20 +61,21 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const dropdowns = document.querySelectorAll('.dropdown');
+            
 
             dropdowns.forEach(dropdown => {
                 const btn = dropdown.querySelector('.dropbtn');
                 const menu = dropdown.querySelector('.dropdown-content');
 
                 btn.addEventListener('click', function(e) {
-                    // Only prevent default if the dropdown has a menu
+                   
                     if (menu) {
                         e.preventDefault();
-                        // Toggle dropdown visibility
+                        
                         if (menu.style.display === 'block') {
                             menu.style.display = 'none';
                         } else {
-                            // Hide other dropdowns
+                           
                             document.querySelectorAll('.dropdown-content').forEach(dc => {
                                 dc.style.display = 'none';
                             });
@@ -84,7 +85,7 @@
                 });
             });
 
-            // Close dropdowns if clicked outside
+            
             document.addEventListener('click', function(e) {
                 if (!e.target.matches('.dropbtn')) {
                     document.querySelectorAll('.dropdown-content').forEach(dc => {
