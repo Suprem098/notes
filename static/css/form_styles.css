@@ -1,4 +1,4 @@
-/* Form container */
+
 .form-container {
   max-width: 400px;
   margin: 5vh auto;
@@ -9,34 +9,9 @@
   font-family: 'Open Sans', sans-serif;
 }
 
-/* Google button */
-.google-btn {
-  width: 100%;
-  background-color: #4285f4;
-  color: white;
-  font-weight: 600;
-  border: none;
-  padding: 12px;
-  border-radius: 6px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  transition: background-color 0.3s ease;
-  user-select: none;
-}
 
-.google-btn img {
-  height: 20px;
-  width: 20px;
-}
 
-.google-btn:hover {
-  background-color: #357ae8;
-}
 
-/* Divider */
 .divider {
   text-align: center;
   margin: 1.5rem 0;
@@ -63,7 +38,7 @@
   right: 0;
 }
 
-/* Form */
+
 form {
   display: flex;
   flex-direction: column;
@@ -93,7 +68,6 @@ input[type="password"]:focus {
   box-shadow: 0 0 5px rgba(37, 99, 235, 0.5);
 }
 
-/* Checkbox container */
 .checkbox-container {
   display: flex;
   align-items: center;
@@ -102,7 +76,7 @@ input[type="password"]:focus {
   color: #555;
 }
 
-/* Buttons */
+
 button[type="submit"] {
   background-color: #2563eb;
   color: white;
@@ -119,7 +93,7 @@ button[type="submit"]:hover {
   background-color: #1e40af;
 }
 
-/* Links */
+
 .links {
   text-align: center;
   margin-top: 1rem;

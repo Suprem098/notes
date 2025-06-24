@@ -1,6 +1,4 @@
-/* Existing styles */
 
-/* Community Blog Styles */
 .community-container {
     max-width: 800px;
     margin: 30px auto;
@@ -53,7 +51,7 @@
     margin-top: 6px;
 }
 
-/* Community Create Form */
+
 .community-create-form {
     max-width: 600px;
     margin: 0 auto;
@@ -113,7 +111,7 @@
     background-color: #0056b3;
 }
 
-/* Community blog styles */
+
 .community-container {
     max-width: 800px;
     margin: 20px auto;
@@ -223,7 +221,7 @@
     white-space: pre-wrap;
 }
 
-/* Improved dropdown styling for account menu */
+
 .navbar .nav-links .dropdown-content {
     background-color: white;
     border: 1px solid #ccc;
@@ -234,7 +232,7 @@
     z-index: 1000;
 }
 
-/* Fix dropdown overflow for last dropdown (Account) */
+
 .navbar .nav-links li.dropdown:last-child > ul.dropdown-content {
     right: 0;
     left: auto;
@@ -287,7 +285,7 @@
     font-size: 1.2rem;
 }
 
-/* Remove ellipsis dots from subject descriptions */
+
 .subject-card p {
     white-space: normal !important;
     overflow: visible !important;
@@ -307,7 +305,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Header and Navigation */
+
 header.navbar {
   background-color: #ffffff;
   padding: 0.5rem 3rem;
@@ -318,8 +316,7 @@ header.navbar {
   top: 0;
   z-index: 1000;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  /* max-height: 80px; */
-  /* overflow: visible; */
+
 }
 
 .nav-logo a {
@@ -372,7 +369,7 @@ nav ul.nav-links li a.nav-link.active {
   cursor: pointer;
 }
 
-/* Dropdown */
+
 nav ul.nav-links li.dropdown:hover > ul.dropdown-content,
 nav ul.nav-links li.dropdown:focus-within > ul.dropdown-content {
   display: block;
@@ -414,7 +411,7 @@ ul.dropdown-content li a:focus {
   cursor: pointer;
 }
 
-/* Banner container for two gifs side by side */
+
 .banner-container {
   display: flex;
   flex-wrap: wrap;
@@ -471,7 +468,7 @@ ul.dropdown-content li a:focus {
   box-shadow: 0 4px 16px rgba(0,0,0,0.15);
 }
 
-/* Programs section */
+
 .programs-section {
   background-color: #f0f4ff;
   padding: 1.5rem 2rem;
@@ -541,7 +538,7 @@ ul.dropdown-content li a:focus {
   box-shadow: 0 4px 12px rgba(59, 130, 246, 0.6);
 }
 
-/* Main content */
+
 main {
   background-color: #ffffff;
   color: #333;
@@ -558,13 +555,13 @@ main:hover {
   box-shadow: 0 4px 20px rgba(0,0,0,0.15);
 }
 
-/* Animations */
+
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* Smooth scale-up on hover for program buttons */
+
 .program-btn {
   transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
 }
@@ -573,7 +570,7 @@ main:hover {
   transform: scale(1.05);
 }
 
-/* Subtle pulse animation for banner images */
+
 @keyframes pulse {
   0%, 100% { transform: scale(1); }
   50% { transform: scale(1.03); }
@@ -590,7 +587,7 @@ main:hover {
   transform: scale(1.1);
 }
 
-/* Navigation links fade-in on page load */
+
 nav ul.nav-links li a.nav-link {
   opacity: 0;
   animation: fadeIn 0.8s ease forwards;
@@ -604,7 +601,7 @@ nav ul.nav-links li:nth-child(5) a.nav-link { animation-delay: 0.5s; }
 nav ul.nav-links li:nth-child(6) a.nav-link { animation-delay: 0.6s; }
 nav ul.nav-links li:nth-child(7) a.nav-link { animation-delay: 0.7s; }
 
-/* Smooth hover effect for cards */
+
 .card {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -615,7 +612,7 @@ nav ul.nav-links li:nth-child(7) a.nav-link { animation-delay: 0.7s; }
   box-shadow: 0 6px 20px rgba(0,0,0,0.2);
 }
 
-/* About section */
+
 .container {
   display: flex;
   align-items: center;
@@ -651,7 +648,7 @@ nav ul.nav-links li:nth-child(7) a.nav-link { animation-delay: 0.7s; }
   font-style: italic;
 }
 
-/* Image */
+
 .image img {
   width: 100%;
   height: auto;
@@ -666,7 +663,7 @@ nav ul.nav-links li:nth-child(7) a.nav-link { animation-delay: 0.7s; }
   transform: scale(1.03);
 }
 
-/* Semester notes section */
+
 .note {
   background-color: #f0f4ff;
   padding: 2rem 1.5rem;
@@ -702,7 +699,7 @@ nav ul.nav-links li:nth-child(7) a.nav-link { animation-delay: 0.7s; }
   font-style: italic;
 }
 
-/* Grid for cards */
+
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -754,7 +751,7 @@ nav ul.nav-links li:nth-child(7) a.nav-link { animation-delay: 0.7s; }
   color: #6b7280;
 }
 
-/* Footer */
+
 footer {
   display: flex;
   justify-content: space-between;
@@ -773,7 +770,7 @@ text-decoration: none;
 color: black;
 }
 
-/* Semester cards grid */
+
 .semester-grid {
     display: flex;
     flex-wrap: wrap;
@@ -781,7 +778,7 @@ color: black;
     justify-content: center;
 }
 
-/* Semester card */
+
 .semester-card {
     text-decoration: none;
     color: inherit;
@@ -794,7 +791,7 @@ color: black;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
-/* Icon container */
+
 .semester-card .icon {
     background: white;
     border-radius: 10px;
@@ -806,7 +803,6 @@ color: black;
     height: 50px;
 }
 
-/* Info container */
 .semester-card .info {
     display: flex;
     flex-direction: column;
@@ -823,40 +819,40 @@ color: black;
     font-size: 0.9rem;
 }
 
-/* Background colors for cards */
+
 .bg1 {
-    background-color: #f5e6d7; /* pastel peach */
+    background-color: #f5e6d7; 
 }
 
 .bg2 {
-    background-color: #f7d6d6; /* pastel pink */
+    background-color: #f7d6d6; 
 }
 
 .bg3 {
-    background-color: #f9f1d1; /* pastel yellow */
+    background-color: #f9f1d1; 
 }
 
 .bg4 {
-    background-color: #d7e8ff; /* pastel blue */
+    background-color: #d7e8ff; 
 }
 
 .bg5 {
-    background-color: #d9d9ff; /* pastel purple */
+    background-color: #d9d9ff; 
 }
 
 .bg6 {
-    background-color: #e6f0f9; /* pastel light blue */
+    background-color: #e6f0f9; 
 }
 
 .bg7 {
-    background-color: #d1f0e0; /* pastel mint */
+    background-color: #d1f0e0; 
 }
 
 .bg8 {
-    background-color: #d9f0d1; /* pastel green */
+    background-color: #d9f0d1; 
 }
 
-/* Syllabus card improvements */
+
 .syllabus-card {
   flex-direction: column;
   align-items: flex-start;
