@@ -60,7 +60,7 @@
                 <li>Database Administrator</li>
                 <li>System Analyst</li>
                 <li>IT Support Specialist</li>
-                <li>QA Tester</li>
+                
             </ul>
             <p>Or go for higher studies like:</p>
             <ul>
@@ -161,40 +161,12 @@
                 {% endfor %}
             </div>
         </div>
+
+        
     </main>
     {% include 'mainapp/footer.html' %}
+    
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const dropdowns = document.querySelectorAll('.dropdown');
-
-            dropdowns.forEach(dropdown => {
-                const btn = dropdown.querySelector('.dropbtn');
-                const menu = dropdown.querySelector('.dropdown-content');
-
-                btn.addEventListener('click', function(e) {
-                    if (menu) {
-                        e.preventDefault();
-                        if (menu.style.display === 'block') {
-                            menu.style.display = 'none';
-                        } else {
-                            document.querySelectorAll('.dropdown-content').forEach(dc => {
-                                dc.style.display = 'none';
-                            });
-                            menu.style.display = 'block';
-                        }
-                    }
-                });
-            });
-
-            document.addEventListener('click', function(e) {
-                if (!e.target.matches('.dropbtn')) {
-                    document.querySelectorAll('.dropdown-content').forEach(dc => {
-                        dc.style.display = 'none';
-                    });
-                }
-            });
-        });
-    </script>
+   
 </body>
 </html>
