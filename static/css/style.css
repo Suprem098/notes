@@ -633,6 +633,94 @@ color: black;
     background-color: #d9f0d1; /* pastel green */
 }
 
+/* Syllabus card improvements */
+.syllabus-card {
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 1.5rem 2rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+  background-color: #fff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: default;
+  display: flex;
+  gap: 1rem;
+}
+
+.syllabus-card:hover,
+.syllabus-card:focus {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+  outline: none;
+}
+
+.syllabus-title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #1e40af;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.syllabus-icon {
+  font-size: 1.8rem;
+  color: #2563eb;
+}
+
+.syllabus-description {
+  font-style: italic;
+  color: #4b5563;
+  margin: 0 0 1rem 0;
+  min-height: 2.5rem;
+}
+
+.card-footer {
+  width: 100%;
+  border-top: 1px solid #e0e7ff;
+  padding-top: 1rem;
+  display: flex;
+  justify-content: flex-start;
+  gap: 1rem;
+}
+
+.footer-actions a {
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  user-select: none;
+}
+
+.btn-download {
+  background-color: #2563eb;
+  color: white;
+}
+
+.btn-download:hover,
+.btn-download:focus {
+  background-color: #1e40af;
+  color: white;
+  outline: none;
+}
+
+.btn-view {
+  background-color: #e0e7ff;
+  color: #2563eb;
+}
+
+.btn-view:hover,
+.btn-view:focus {
+  background-color: #c7d2fe;
+  color: #1e40af;
+  outline: none;
+}
 .footer {
   background-color: #f0f4ff;
   text-align: center;
