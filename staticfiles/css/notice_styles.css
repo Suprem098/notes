@@ -1,0 +1,223 @@
+.notice-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill,minmax(280px,1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+.notice-card {
+  background: #fff3e0;
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  cursor: pointer;
+}
+.notice-card:hover {
+  box-shadow: 0 20px 60px rgba(0, 191, 165, 0.3);
+  transform: translateY(-10px);
+}
+.notice-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 24px;
+}
+.notice-icon.program {
+  background-color: #4caf50; 
+}
+.notice-icon.notice {
+  background-color: #673ab7; 
+}
+.notice-icon.result {
+  background-color: #009688; 
+}
+.notice-icon.exam {
+  background-color: #f44336;
+}
+.notice-icon.schedule {
+  background-color: #3f51b5; 
+}
+.notice-icon.holiday {
+  background-color: #f44336; /
+}
+.notice-title {
+  font-weight: 900;
+  font-size: 1.4rem;
+  margin: 0;
+  color: #004d40;
+}
+.notice-timestamp {
+  font-size: 1rem;
+  color: #2e7d32;
+}
+.notice-description {
+  font-size: 1.1rem;
+  color: #2e7d32;
+}
+
+/* Calendar styles */
+.calendar {
+  width: 100%;
+  max-width: 400px;
+  margin: 2rem auto 3rem auto;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  padding: 1rem;
+  user-select: none;
+  transition: box-shadow 0.3s ease;
+}
+
+.calendar:hover {
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.calendar-header button {
+  background: #1e40af;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.calendar-header button:hover,
+.calendar-header button:focus {
+  background-color: #2563eb;
+  outline: none;
+}
+
+.calendar-header span {
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: #1e40af;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.5rem;
+}
+
+.calendar-day {
+  text-align: center;
+  padding: 0.75rem 0;
+  font-weight: 700;
+  background: #e0e7ff;
+  border-radius: 6px;
+  color: #1e40af;
+  user-select: none;
+}
+
+.calendar-date {
+  text-align: center;
+  padding: 0.75rem 0;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  user-select: none;
+}
+
+.calendar-date:hover {
+  background: #c7d2fe;
+  box-shadow: 0 0 8px rgba(59, 130, 246, 0.5);
+}
+
+.calendar-date.highlight {
+  background: #1e40af;
+  color: white;
+  font-weight: 700;
+  box-shadow: 0 0 12px rgba(59, 130, 246, 0.7);
+}
+
+.calendar-date.program {
+  background: #4caf50;
+  color: white;
+}
+
+.calendar-date.result {
+  background: #2563eb;
+  color: white;
+}
+
+.calendar-date.exam {
+  background: #f59e0b;
+  color: white;
+}
+
+.calendar-date.holiday {
+  background: #ef4444;
+  color: white;
+}
+
+.calendar-date.schedule {
+  background: #7c3aed;
+  color: white;
+}
+
+/* Dropdown styles */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropbtn {
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  background-color: #1e40af;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 600;
+  user-select: none;
+  transition: background-color 0.3s ease;
+}
+
+.dropbtn:hover,
+.dropbtn:focus {
+  background-color: #2563eb;
+  outline: none;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  min-width: 160px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+  border-radius: 6px;
+  z-index: 1000;
+  padding: 0.5rem 0;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 0.75rem 1rem;
+  text-decoration: none;
+  display: block;
+  user-select: none;
+  transition: background-color 0.3s ease;
+}
+
+.dropdown-content a:hover {
+  background-color: #e0e7ff;
+}
