@@ -15,9 +15,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-please-change-this-to-a-secure-key'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['suprem.pythonanywhere.com', 'www.suprem.pythonanywhere.com','localhost','127.0.0.1' ]
+ALLOWED_HOSTS = ['suprem.pythonanywhere.com','www.suprem.pythonanywhere.com', '127.0.0.1', 'localhost']
 
 
 # Application definition
@@ -122,7 +122,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Media files (uploads)
 MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / 'media'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Add login redirect URL to home page
 LOGIN_REDIRECT_URL = '/'
@@ -130,3 +130,5 @@ LOGOUT_REDIRECT_URL = '/'
 
 # Add this line to specify the login URL for @login_required decorator
 LOGIN_URL = '/account/signin/'
+
+
